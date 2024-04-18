@@ -1,0 +1,18 @@
+<div class="product" *ngIf="product">
+  <div class="product_header">
+    {{product.productName}}
+  </div>
+  <div class="product_content">
+    <span><i class="fas fa-barcode fa-2xl"></i></span>
+    <p>Category: {{product.category}}</p>
+    <p>Price: <strong>{{ product | price | currency: 'EUR': 'symbol' }}</strong></p>
+  </div>
+  <div class="product_footer">
+    <span *ngIf="product.quantity; else notAvailable" class="btn btn-quantity">Qte: {{product.quantity}}</span>
+    <ng-template #notAvailable>
+      <span class="not-available">Not available <i class="fas fa-face-frown"></i></span>
+    </ng-template>
+    <input class="quantity" type="number" min="1" [max]="product.quantity" [(ngModel)]="quantity">
+    <button class="btn btn-add" [disabled]="!product.quantity" (click)="addToCart(product)">Add <i class="fas fa-plus"></i></button>
+  </div>
+</div>

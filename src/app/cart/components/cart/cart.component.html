@@ -1,0 +1,53 @@
+<div class="cart-container">
+  <header class="header">
+    <h1>Cart</h1>
+    <nav>
+      <ul>
+        <li><a class="btn-back" routerLink="/products">Home</a></li>
+      </ul>
+      
+    </nav>
+  </header>
+    
+  
+    <section class="productd-wrapper" *ngIf="cartProducts$ | async as products">
+      <div class="products-container" *ngIf="products.length ; else emptyCart">
+        <table class="products-table sticky-headers">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Qte</th>
+              <th>Tax</th>
+              <th>price exclusive of taxes</th>
+              <th>price including taxes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="list-products" *ngFor="let product of products">
+              <td data-title="Name">{{product.productName}}</td>
+              <td data-title="Qte">
+                {{product.addedQuantity}}
+                <button class="btn btn-add" (click)="increaseQuantity(product)"> <i class="fas fa-square-plus"></i> </button>
+                <button class="btn btn-remove" (click)="decreaseQuantity(product)"> <i class="fas fa-square-minus"></i> </button>
+              </td>
+              <td data-title="Tax">{{ product.tax| currency: 'EUR': 'symbol' }}</td>
+              <td data-title="Unit excluding tax">{{ product.price | currency: 'EUR': 'symbol' }}</td>
+              <td data-title="Unit price with tax">{{ product.priceWithTax| currency: 'EUR': 'symbol' }}</td>
+              <td data-title="Actions">
+                <button class="btn btn-remove" (click)="removeProduct(product)" id="removeProduct"> <i class="fas fa-trash-can"></i> </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #emptyCart>
+        <p class="empty-cart">Empty cart</p>
+      </ng-template>
+      <div class="total">
+        <p class="total-info">Total tax: {{products | totalPrice: 'tax' | currency: 'EUR': 'symbol' }} </p>
+        <p class="total-info">Total price with tax: {{products | totalPrice: 'price' | currency: 'EUR': 'symbol' }} </p>
+      </div>
+    </section>
+  
+  </div>

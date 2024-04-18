@@ -25,3 +25,101 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Project architecture
+```
+angular-scss-start
+├─ 📁src
+│  ├─ 📁app
+│  │  ├─ 📁cart
+│  │  │  ├─ components
+│  │  │  │  ├─ 📄cart.components.html
+│  │  │  │  ├─ 📄cart.components.scss
+│  │  │  │  ├─ 📄cart.components.spec.ts
+│  │  │  │  └─ 📄cart.components.ts
+│  │  │  ├─ 📁pipes
+│  │  │  │  ├─ 📄total-price.pipe.spec.ts
+│  │  │  │  └─ 📄total-price.pipe.ts
+│  │  │  ├─ 📄cart-routing.module.ts
+│  │  │  └─ 📄cart.module.ts
+│  │  ├─ 📁products
+│  │  │  ├─ 📁components
+│  │  │  │  └─ 📁products
+│  │  │  │     ├─ 📄products.component.html
+│  │  │  │     ├─ 📄products.component.scss
+│  │  │  │     ├─ 📄products.component.spec.ts
+│  │  │  │     └─ 📄products.component.ts
+│  │  │  │  └─ 📁product
+│  │  │  │     ├─ 📄product.component.html
+│  │  │  │     ├─ 📄product.component.scss
+│  │  │  │     ├─ 📄product.component.spec.ts
+│  │  │  │     └─ 📄product.component.ts
+│  │  │  ├─ 📁constants
+│  │  │  │  └─ 📄product.constant.ts
+│  │  │  ├─ 📁models
+│  │  │  │  └─ 📄add-cart.models.ts
+│  │  │  ├─ 📁pipes
+│  │  │  │  ├─ 📄filter-product.pipe.spec.ts
+│  │  │  │  ├─ 📄filter-product.pipe.ts
+│  │  │  │  ├─ 📄price-tax.pipe.ts
+│  │  │  │  ├─ 📄unique-categories.pipe.spec.ts
+│  │  │  │  └─ 📄unique-categories.pipe.ts
+│  │  │  └─ 📄products.module.ts
+│  │  ├─ 📁shared
+│  │  │  ├─ 📁components
+│  │  │  │  └─ 📁products
+│  │  │  │     ├─ 📄not-found.component.html
+│  │  │  │     ├─ 📄not-found.component.scss
+│  │  │  │     ├─ 📄not-found.component.spec.ts
+│  │  │  │     └─ 📄not-found.component.ts
+│  │  │  ├─ 📁enums
+│  │  │  │  └─ 📄category-tax.enum.ts
+│  │  │  ├─ 📁models
+│  │  │  │  └─ 📄product.models.ts
+│  │  │  ├─ 📁services
+│  │  │  │  ├─ 📄cart.service.spec.ts
+│  │  │  │  ├─ 📄cart.service.ts
+│  │  │  │  ├─ 📄products.service.spec.ts
+│  │  │  │  └─ 📄products.service.ts
+│  │  │  ├─ 📁utils
+│  │  │  │  ├─ 📄tax.spec.ts
+│  │  │  │  └─ 📄tax.ts
+│  │  │  └─ 📄shared.module.ts
+│  │  ├─ 📄app-routing.module.ts
+│  │  ├─ 📄app.component.html
+│  │  ├─ 📄app.component.scss
+│  │  ├─ 📄app.component.spec.ts
+│  │  ├─ 📄app.component.ts
+│  │  ├─ 📄app.module.ts
+│  │  └─ 📄constants.ts
+│  ├─ 📁assets
+│  │  ├─ 📄.gitkeep
+│  │  └─ 📄products.json
+│  ├─ 📁environments 
+│  │  ├─ 📄environment.prod.ts
+│  │  └─ 📄environment.ts
+│  ├─ 📁mocks 
+│  │  ├─ 📄mock-cart.ts
+│  │  └─ 📄mock-products.ts
+│  ├─ 📁styles
+│  │  ├─ 📄_breakpoint.scss
+│  │  ├─ 📄_colors.scss
+│  │  ├─ 📄_mixins.scss
+│  │  ├─ 📄_variables.scss
+│  │  └─ 📄_styles.scss
+│  ├─ 📄favicon.ico
+│  ├─ 📄index.html
+│  ├─ 📄main.ts
+├─ 📄.editorconfig
+├─ 📄.eslintrc.json
+├─ 📄.gitignore
+├─ 📄README.md
+├─ 📄angular.json
+├─ 📄package-lock.json
+├─ 📄package.json
+├─ 📄tsconfig.app.json
+├─ 📄tsconfig.json
+└─ 📄tsconfig.spec.json
+```
+

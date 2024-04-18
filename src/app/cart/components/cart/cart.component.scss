@@ -1,0 +1,151 @@
+@import 'variables';
+@import 'colors';
+@import 'mixins';
+
+header {
+  margin-left: 20px;
+  
+  ul > li{
+    background-color: $BlueGreen;
+    min-width: 10em;
+    color: $White;
+    border-right: thin solid black;
+    text-align: center;
+    display: inline-block;
+
+    a {
+      text-decoration: none;
+    }
+    
+    &:last-child{
+      border-right: 0;
+    }
+  
+    &:hover, :visited{
+      background-color: $Green;
+      color: $White;
+    }
+  }
+}
+
+.total {
+  float: right;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  line-height: 16px;
+  cursor: pointer;
+
+  &-remove {
+    color: $DarkOrange;
+  }
+
+  &-add {
+    color: $Green;
+  }
+}
+
+.empty-cart {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  background-color: $DarkOrange;
+  color: $White;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.productd-wrapper {
+  margin-top: 20px;
+
+  .total-info {
+    background-color: $White;
+    color: $Black;
+    border: 2px solid $Green;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+  }
+}
+
+table.sticky-headers {
+  width: 100%;
+
+  thead tr th {
+    position: sticky;
+    top: 0
+  }
+}
+
+.products-container {
+  max-height: 350px;
+  overflow-y: auto;
+
+  .products-table {
+    tr:nth-child(even) {
+      background-color: $LightGray;
+    }
+
+    tr:hover {
+      background-color: $Alto;
+    }
+
+    td,
+    th {
+      border: 1px solid $Alto;
+      padding: 8px;
+    }
+
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: $Green;
+      color: $White;
+    }
+
+  }
+}
+
+
+@include tablet-down  {
+  table {
+    border-collapse: collapse;
+  }
+  tr {
+    border-bottom: 5px solid $DarkOrange;
+  }
+
+  td {
+    display: block;
+    text-align: left;
+    
+  }
+
+  /* Masquer les en-têtes de colonne */
+  th {
+    display: none;
+  }
+
+  /* Styles pour les cellules de données en mode responsive */
+  td:before {
+    content: attr(data-title);
+    font-weight: bold;
+    display: inline-block;
+    width: 50%;
+    padding-right: 10px;
+    vertical-align: top;
+  }
+}

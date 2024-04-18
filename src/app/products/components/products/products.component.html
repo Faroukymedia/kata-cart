@@ -1,0 +1,18 @@
+<section class="container">
+    <ng-container *ngIf="products$ | async as products">
+        <header class="header">
+            <h1>Products list</h1>
+            <ng-select class="category" [items]="products | uniqueCategories" [(ngModel)]="selectedCategory"
+                [placeholder]="'Category'">
+            </ng-select>
+            <a routerLink="/cart" class="link-cart">
+                <i class="fa fa-cart-shopping"></i>
+                <span class="products-counter" *ngIf="cartProducts$ | async as cartProducts">{{cartProducts.length}}</span>
+            </a>
+        </header>
+        <section class="products-container">
+            <app-product *ngFor="let product of products | filter: selectedCategory" [product]="product"
+                (addToCartEvent)="addToCart($event)"></app-product>
+        </section>
+    </ng-container>
+</section>
